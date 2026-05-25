@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditya Graphics — Jacquard Design Studio</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  
+  <!-- JS Scripts (defer to maintain clean structural page builds) -->
+  <script src="js/loader.js" defer></script>
+  <script src="js/data-handler.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- ── NAVBAR & MOBILE MENU (Shared Component) ────────────────── -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- ── HERO SECTION (Shared Component) ────────────────────────── -->
+  <div id="hero-placeholder"></div>
+
+  <!-- ── SERVICES ───────────────────────────────────────────────── -->
+  <section id="services">
+    <div class="inner">
+      <div class="s-label" data-t="sec_services">Services</div>
+      <div class="divider"></div>
+      <h2 class="s-title" data-t="svc_title">Jacquard Design Services</h2>
+      <p class="s-sub" data-t="svc_sub">Complete design support from first reference to final approval — pure design expertise.</p>
+      <div class="svc-grid">
+        <div class="svc-card">
+          <div class="svc-icon">✦</div>
+          <h3 data-t="svc1_h">Jacquard Design Creation</h3>
+          <p data-t="svc1_p">Motifs, borders, and all-over repeats crafted for precise weaving specifications across all textile categories.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">◈</div>
+          <h3 data-t="svc2_h">Design Re-creation from Photo</h3>
+          <p data-t="svc2_p">Send any reference photo or sample — we recreate the design with accurate color matching and repeat structure.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">▣</div>
+          <h3 data-t="svc3_h">Border & Daman Design</h3>
+          <p data-t="svc3_p">Precise border and daman element design with correct repeat logic and proportionate scale for any fabric width.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">◉</div>
+          <h3 data-t="svc4_h">Buti & All-Over Patterns</h3>
+          <p data-t="svc4_p">Small-repeat designs for body fill and all-over buti layouts — evenly spaced, balanced, ready for your review.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">⟁</div>
+          <h3 data-t="svc5_h">Revision & Execution Support</h3>
+          <p data-t="svc5_p">Design tweaks, color adjustments, and advice during the weaving process. We stand by the design through final approval.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PORTFOLIO ──────────────────────────────────────────────── -->
+  <section id="portfolio">
+    <div class="inner">
+      <div class="s-label" data-t="sec_portfolio">Portfolio</div>
+      <div class="divider"></div>
+      <h2 class="s-title" data-t="port_title">Design Gallery</h2>
+      <p class="s-sub" data-t="port_sub">Browse our jacquard design work across all categories. Click any design to view details.</p>
+      <div class="filter-wrap" id="filterWrap"></div>
+      <div class="pgrid" id="pgrid"></div>
+    </div>
+  </section>
+
+  <!-- ── PRICING ────────────────────────────────────────────────── -->
+  <section id="pricing">
+    <div class="inner pricing-inner">
+      <div class="s-label" data-t="sec_pricing">Pricing</div>
+      <div class="divider"></div>
+      <h2 class="s-title" data-t="price_title">Design Charges</h2>
+      <p class="s-sub" data-t="price_sub">Transparent per-design pricing. Click a row to view that category in the portfolio.</p>
+      <table class="ptable">
+        <thead>
+          <tr>
+            <th data-t="price_th1">Design Type</th>
+            <th class="text-right" data-t="price_th2">Price (INR)</th>
+          </tr>
+        </thead>
+        <tbody id="ptbody"></tbody>
+      </table>
+      <div class="pnote">
+        <strong data-t="note_label">Note:</strong>
+        <span data-t="price_note">Prices depend on design complexity, repeat size, and loom specifications. Final quotation is shared after reviewing the reference design.</span>
+      </div>
+      <div class="pcta">
+        <p class="price-cta-text" data-t="price_cta_text">Send your reference on WhatsApp for an exact quote.</p>
+        <a href="#" id="priceWaBtn" class="btn-wa" target="_blank" data-t="price_cta_btn">💬 Get a Quote on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS ────────────────────────────────────────────────── -->
+  <section id="process">
+    <div class="inner text-center">
+      <div class="s-label" data-t="sec_process">How It Works</div>
+      <div class="divider divider-center"></div>
+      <h2 class="s-title" data-t="proc_title">Simple 3-Step Process</h2>
+      <p class="s-sub m-auto" data-t="proc_sub">From reference photo to approved design — fast, direct, on WhatsApp.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-n">1</div>
+          <h3 data-t="step1_h">Send Reference</h3>
+          <p data-t="step1_p">Send a photo, sample or screenshot on WhatsApp.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">2</div>
+          <h3 data-t="step2_h">Design & Preview</h3>
+          <p data-t="step2_p">We create the jacquard design and share a preview with you for review and approval.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">3</div>
+          <h3 data-t="step3_h">Revisions & Approval</h3>
+          <p data-t="step3_p">We make requested revisions and finalize the design on approval.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS (Shared Component) ────────────────────────── -->
+  <div id="testimonials-placeholder"></div>
+
+  <!-- ── ABOUT ──────────────────────────────────────────────────── -->
+  <section id="about">
+    <div class="inner">
+      <div class="s-label" data-t="sec_about">About</div>
+      <div class="divider"></div>
+      <h2 class="s-title" data-t="about_title">About Aditya Graphics</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p data-t="about_p1">Aditya Graphics is a specialized jacquard design studio based in Surat, Gujarat — India's premier textile manufacturing hub. With over 15 years of experience, we work exclusively with loom owners, weaving mills, and textile traders.</p>
+          <p data-t="about_p2">Our work spans the full range of woven textile categories: sarees, dupattas, sherwanis, brocade, lace, furnishing fabrics, and more. Every design is created from the client's own reference and refined through preview and revision until fully approved.</p>
+          <p data-t="about_p3">All project coordination happens on WhatsApp — fast, personal, direct.</p>
+          <div class="about-wa-btn-wrap">
+            <a href="#" id="aboutWaBtn" class="btn-wa" target="_blank" data-t="about_wa">💬 Connect on WhatsApp</a>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="arow"><div class="arow-icon">📍</div><div class="arow-text"><strong data-t="ab_loc_l">Location</strong><span data-t="ab_loc_v">Surat, Gujarat, India</span></div></div>
+          <div class="arow"><div class="arow-icon">⏱</div><div class="arow-text"><strong data-t="ab_exp_l">Experience</strong><span data-t="ab_exp_v">15+ years in jacquard textile design</span></div></div>
+          <div class="arow"><div class="arow-icon">🧵</div><div class="arow-text"><strong data-t="ab_spec_l">Specialization</strong><span data-t="ab_spec_v">Jacquard design for handloom & powerloom</span></div></div>
+          <div class="arow"><div class="arow-icon">🏭</div><div class="arow-text"><strong data-t="ab_cli_l">Clients</strong><span data-t="ab_cli_v">Loom owners, mills, textile traders</span></div></div>
+          <div class="arow"><div class="arow-icon">🕐</div><div class="arow-text"><strong data-t="ab_hrs_l">Hours</strong><span data-t="ab_hrs_v">Mon–Sat, 9:00 AM – 6:00 PM IST</span></div></div>
+          <div class="arow"><div class="arow-icon">✉</div><div class="arow-text"><strong data-t="ab_email_l">Email</strong><span id="aboutEmail">adityagraphics886@gmail.com</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ────────────────────────────────────────────────── -->
+  <section id="contact">
+    <div class="inner">
+      <div class="s-label" data-t="sec_contact">Contact</div>
+      <div class="divider"></div>
+      <h2 class="s-title" data-t="con_title">Get In Touch</h2>
+      <div class="contact-grid">
+        <div>
+          <div class="wa-box">
+            <h3 data-t="con_wa_h">Start on WhatsApp</h3>
+            <p data-t="con_wa_p">Fastest way to share a reference, get a quote, and begin. Most requests answered within hours.</p>
+            <a href="#" id="conWaBtn" class="btn-wa-lg" target="_blank" data-t="con_wa_btn">💬 Open WhatsApp Chat</a>
+            <div class="cd">📍 <span data-t="con_loc">Surat, Gujarat, India</span></div>
+            <div class="cd">🕐 <span data-t="con_hrs">Mon–Sat, 9:00 AM – 6:00 PM IST</span></div>
+            <div class="cd">✉ <span id="contactEmail">adityagraphics886@gmail.com</span></div>
+            <div class="email-note" data-t="con_email_note">Use email for large file attachments only</div>
+          </div>
+        </div>
+        <div class="cform">
+          <h3 data-t="form_title">Send a Message</h3>
+          <div class="fg"><label data-t="form_name">Your Name</label><input type="text" id="cName" data-placeholder-t="form_name_ph"></div>
+          <div class="fg"><label data-t="form_co">Company / Business</label><input type="text" id="cCo" data-placeholder-t="form_co_ph"></div>
+          <div class="fg"><label data-t="form_phone">WhatsApp Number</label><input type="tel" id="cPhone" placeholder="+91 99999 99999"></div>
+          <div class="fg"><label data-t="form_msg">Message</label><textarea id="cMsg" data-placeholder-t="form_msg_ph"></textarea></div>
+          <button class="sbtn" onclick="submitForm()" data-t="form_submit">Send via WhatsApp →</button>
+          <p class="form-note" data-t="form_note">This opens WhatsApp with your message pre-filled</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER (Shared Component) ──────────────────────────────── -->
+  <div id="footer-placeholder"></div>
+
+  <!-- ── OVERLAYS (Shared Component) ────────────────────────────── -->
+  <div id="overlays-placeholder"></div>
+
+  <!-- ── FLOATING BUTTONS (Shared Component) ─────────────────────── -->
+  <div id="floaters-placeholder"></div>
+
+</body>
+</html>
