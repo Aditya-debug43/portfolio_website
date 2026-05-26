@@ -251,8 +251,8 @@ window.setLang = function(lang) {
 };
 
 // ── BRAND LOGIC ──────────────────────────────────────────────────────
-window.applyBrand = function() {
-  const b = loadBrand();
+window.applyBrand = async function() {
+  const b = await loadBrand();
   const name = b.name || 'Aditya Graphics';
   const tag  = b.tag  || 'Jacquard Design Studio';
   const logo = b.logo || '';
@@ -443,7 +443,7 @@ window.openLb = async function(id) {
   const lb = document.getElementById('lb');
   if (!lb) return;
   
-  const b = loadBrand();
+  const b = await loadBrand();
   const wa = b.wa || '919999999999';
   const waUrl = 'https://wa.me/' + wa.replace(/[^0-9]/g, '') + '?text=' + encodeURIComponent('Hi, I would like to enquire about the design: ' + it.title + ' (' + it.cat + ')');
   
@@ -486,8 +486,8 @@ window.bgClose = function(id, e) {
   if (e.target === document.getElementById(id)) closeOverlay(id);
 };
 
-window.openLoginOrAdmin = function() {
-  const b = loadBrand();
+window.openLoginOrAdmin = async function() {
+  const b = await loadBrand();
   if (sessionStorage.getItem('ag_auth') === (b.pwd || 'admin123')) {
     openOverlay('adminOverlay');
     loadAdminPanel();
@@ -496,8 +496,8 @@ window.openLoginOrAdmin = function() {
   }
 };
 
-window.tryLogin = function() {
-  const b = loadBrand();
+window.tryLogin = async function() {
+  const b = await loadBrand();
   const pwd = document.getElementById('loginPwd').value;
   if (pwd === 'admin123' || pwd === (b.pwd || 'admin123')) {
     sessionStorage.setItem('ag_auth', pwd);
@@ -520,8 +520,8 @@ window.switchTab = function(name, el) {
   if (targetSection) targetSection.classList.add('on');
 };
 
-window.loadAdminPanel = function() {
-  const b = loadBrand();
+window.loadAdminPanel = async function() {
+  const b = await loadBrand();
   const aName = document.getElementById('aName');
   if (aName) aName.value = b.name || 'Aditya Graphics';
   
@@ -552,8 +552,8 @@ window.prevLogo = function() {
   }
 };
 
-window.saveBrand = function() {
-  const b = loadBrand();
+window.saveBrand = async function() {
+  const b = await loadBrand();
   const newPwdInput = document.getElementById('aNewPwd');
   const newPwd = newPwdInput ? newPwdInput.value.trim() : '';
   const data = {
@@ -659,8 +659,8 @@ window.savePricing = async function() {
 };
 
 // ── CONTACT FORM PRE-FILL ────────────────────────────────────────────
-window.submitForm = function() {
-  const b = loadBrand();
+window.submitForm = async function() {
+  const b = await loadBrand();
   const wa = b.wa || '919999999999';
   const name = document.getElementById('cName').value.trim();
   const co = document.getElementById('cCo').value.trim();
@@ -696,7 +696,7 @@ window.showPolicy = function(type) {
 // ── ORCHESTRATE LIFECYCLE ON EVENT ───────────────────────────────────
 document.addEventListener('componentsLoaded', async () => {
   // Apply brand details
-  applyBrand();
+  await applyBrand();
   
   // Render layout segments
   renderHeroPills();
@@ -711,3 +711,31 @@ document.addEventListener('componentsLoaded', async () => {
   if (typeof initNavigation === 'function') initNavigation();
   if (typeof initAnimations === 'function') initAnimations();
 });
+
+// ── EXPORT/DOWNLOAD CONFIG FILE HELPERS ──────────────────────────────
+window.downloadJsonFile = function(filename, data) {
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+};
+
+window.downloadBrandJson = async function() {
+  const b = await loadBrand();
+  downloadJsonFile('brand.json', b);
+};
+
+window.downloadPortfolioJson = async function() {
+  const items = await loadPortfolio();
+  downloadJsonFile('portfolio.json', items);
+};
+
+window.downloadPricingJson = async function() {
+  const rows = await loadPricing();
+  downloadJsonFile('products.json', rows);
+};

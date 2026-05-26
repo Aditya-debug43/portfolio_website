@@ -5,12 +5,36 @@
 
 const KEYS = { brand: 'ag_brand', port: 'ag_portfolio', price: 'ag_pricing' };
 
-window.loadBrand = function() {
+window.loadBrand = async function() {
   try {
-    return JSON.parse(localStorage.getItem(KEYS.brand)) || {};
+    const localData = localStorage.getItem(KEYS.brand);
+    if (localData) {
+      return JSON.parse(localData);
+    }
   } catch (e) {
-    return {};
+    console.warn("Could not read brand settings from localStorage, fetching defaults...");
   }
+  
+  // Fallback to fetch brand.json from server
+  try {
+    const response = await fetch('assets/data/brand.json');
+    if (response.ok) {
+      const data = await response.json();
+      localStorage.setItem(KEYS.brand, JSON.stringify(data));
+      return data;
+    }
+  } catch (error) {
+    console.error('Error fetching brand configuration:', error);
+  }
+  
+  return {
+    name: 'Aditya Graphics',
+    tag: 'Jacquard Design Studio',
+    logo: '',
+    wa: '919999999999',
+    email: 'adityagraphics886@gmail.com',
+    pwd: 'admin123'
+  };
 };
 
 window.saveBrandData = function(d) {

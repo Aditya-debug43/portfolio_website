@@ -47,12 +47,18 @@
           <label>Change Admin Password</label>
           <input type="password" id="aNewPwd" placeholder="Leave blank to keep current">
         </div>
-        <button class="abtn abtn-save" onclick="saveBrand()">Save Brand Settings</button>
+        <div class="admin-actions-row">
+          <button class="abtn abtn-save" onclick="saveBrand()">Save Brand Settings</button>
+          <button class="abtn abtn-download" onclick="downloadBrandJson()">Download brand.json</button>
+        </div>
       </div>
 
       <!-- Portfolio Tab -->
       <div id="msec-port" class="msec">
         <div class="banner" id="bPort">✓ Portfolio updated!</div>
+        <div class="admin-actions-row mb-3">
+          <button class="abtn abtn-download" onclick="downloadPortfolioJson()">Download portfolio.json</button>
+        </div>
         <div class="admin-add-card">
           <p class="admin-section-title">Add New Design</p>
           <div class="arow2">
@@ -90,7 +96,10 @@
         <div class="banner" id="bPrice">✓ Pricing saved!</div>
         <p class="admin-hint-text mb-3">Edit type name and price for each row.</p>
         <div id="priceRows"></div>
-        <button class="abtn abtn-save" onclick="savePricing()">Save Pricing</button>
+        <div class="admin-actions-row">
+          <button class="abtn abtn-save" onclick="savePricing()">Save Pricing</button>
+          <button class="abtn abtn-download" onclick="downloadPricingJson()">Download products.json</button>
+        </div>
       </div>
 
     </div>

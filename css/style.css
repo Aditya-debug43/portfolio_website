@@ -346,3 +346,19 @@ footer{background:var(--charcoal);padding:44px 5% 22px}
   padding-top: 110px !important;
 }
 
+/* ── ADMIN ACTIONS ROW & DOWNLOAD BUTTONS ────────────────────────── */
+.admin-actions-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+.abtn-download {
+  background: var(--beige);
+  color: var(--charcoal);
+  border: 1px solid var(--border) !important;
+}
+.abtn-download:hover {
+  background: var(--tan);
+}
+
